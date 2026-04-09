@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -19,8 +20,15 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-xl shadow-lg border-b border-brand-accent/20' : 'bg-transparent'} py-4 px-4 md:px-8`}>
       <div className="flex items-center justify-between w-full">
         {/* Left Side: Company Name */}
-        <Link href="/" className="text-xl md:text-2xl font-bold tracking-tighter text-white transition-transform hover:scale-105 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-          NANOZENIX TECHNOLOGIES
+        <Link href="/" className="transition-transform hover:scale-105 flex items-center">
+          <Image 
+            src="/images/ChatGPT Image Apr 4, 2026, 03_05_52 PM.png" 
+            alt="Nanozenix Technologies" 
+            width={400} 
+            height={100} 
+            className="h-16 md:h-20 w-auto object-contain"
+            priority
+          />
         </Link>
         
         {/* Desktop Links */}

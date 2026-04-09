@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import navbarIcon from "./navbar-icon.png";
 
 export default function Footer() {
   return (
@@ -9,9 +8,11 @@ export default function Footer() {
         <div>
           <div className="mb-4">
             <Image 
-              src={navbarIcon} 
+              src="/images/ChatGPT Image Apr 4, 2026, 03_05_52 PM.png" 
               alt="Nanozenix" 
-              className="h-12  w-20 object-contain brightness-0 invert" 
+              width={400}
+              height={120}
+              className="h-24 md:h-28 w-auto object-contain" 
             />
           </div>
           <p className="text-sm text-brand-muted">

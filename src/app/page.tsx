@@ -135,6 +135,7 @@ export default function Home() {
                   src={srv.image}
                   alt={srv.title}
                   fill
+                  unoptimized={true}
                   className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                 />
                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/20 transition-colors" />
