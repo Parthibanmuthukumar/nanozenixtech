@@ -36,7 +36,7 @@ export default function Footer() {
         </div>
         <div>
           <h4 className="font-semibold mb-4 text-white">Connect</h4>
-          <p className="text-sm text-brand-muted mb-2">nanozenix@gmail.com</p>
+          <p className="text-sm text-brand-muted mb-2">nanozenixtech@gmail.com</p>
           <div className="flex gap-3 mt-4">
             <a href="#" className="w-8 h-8 rounded-full bg-brand-accent flex items-center justify-center hover:scale-110 transition-transform">
               <span className="text-white text-sm">Li</span>
