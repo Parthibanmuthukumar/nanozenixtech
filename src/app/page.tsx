@@ -209,105 +209,84 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. ARCHITECTURE / BENTO BOX SECTION */}
+      {/* 4. WHO WE ARE & FAQ SECTION */}
       <section className="px-4 md:px-8 py-32 max-w-7xl mx-auto relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">Built for Scale.</h2>
-          <p className="text-lg text-brand-beige opacity-70">Metrics, Architecture, and Common Inquiries.</p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">Driven by Passion.</h2>
+          <p className="text-lg text-brand-beige opacity-70">A team of friends building tech, answering your questions.</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
-          {/* Bento Header Box */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-black border border-white/10 text-white rounded-[2rem] p-8 md:p-10 flex flex-col justify-center relative overflow-hidden group shadow-lg"
-          >
-            <div className="absolute inset-0 bg-brand-accent/20 blur-3xl rounded-full translate-x-1/2 translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
-            <h3 className="text-3xl md:text-4xl text-white font-bold mb-3 relative z-10">99.99% Uptime SLA</h3>
-            <p className="text-brand-beige/80 relative z-10 text-sm md:text-base leading-relaxed max-w-md">Our infrastructure deployments guarantee enterprise-grade absolute reliability across global isolated zones.</p>
-          </motion.div>
+          {/* FAQ Accordion Section */}
+          <div className="col-span-1 lg:col-span-2 space-y-4">
+            <h3 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h3>
+            {faqs.map((faq, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-[#111] border border-white/10 rounded-2xl overflow-hidden"
+              >
+                <button 
+                  onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors focus:outline-none"
+                >
+                  <span className="font-semibold text-white">{faq.q}</span>
+                  <ChevronDown className={`text-brand-accent transition-transform flex-shrink-0 ml-4 ${activeFaq === idx ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {activeFaq === idx && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-6 pt-0 text-brand-beige/80 text-sm md:text-base border-t border-white/5 mt-2">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
 
-          {/* Stat Box 1 */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="col-span-1 lg:col-span-1 row-span-1 bg-[#111] border border-white/10 rounded-[2rem] p-8 flex items-center justify-center text-center flex-col group hover:bg-[#1a1a1a] hover:border-brand-accent/50 transition-colors"
-          >
-            <span className="text-5xl md:text-6xl font-black text-white tracking-tighter mb-2 mt-auto group-hover:-translate-y-2 transition-transform duration-500">20B+</span>
-            <span className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-brand-accent mt-auto">Requests/Day</span>
-          </motion.div>
+          {/* Friendly Stat/Info Box */}
+          <div className="col-span-1 flex flex-col gap-6">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="bg-brand-accent rounded-[2rem] p-8 text-white flex flex-col justify-center items-center text-center shadow-lg relative overflow-hidden group h-full hover:shadow-[0_0_20px_rgba(23,168,145,0.4)] transition-all"
+            >
+              <div className="absolute -bottom-10 -right-10 opacity-10 group-hover:rotate-12 transition-transform duration-700 pointer-events-none">
+                <Code size={150} />
+              </div>
+              <span className="text-5xl font-black mb-2 relative z-10 text-white tracking-tighter">100%</span>
+              <span className="text-sm font-semibold uppercase tracking-widest relative z-10 text-white/90">Curiosity & Dedication</span>
+              <p className="mt-4 text-xs font-medium text-white/80 relative z-10">
+                We are a group of friends turned tech-founders, committed to building creative and reliable solutions.
+              </p>
+            </motion.div>
 
-          {/* Custom FAQ Block 1 */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="col-span-1 md:col-span-3 lg:col-span-1 row-span-2 bg-[#111] border border-white/10 shadow-sm rounded-[2rem] p-8 md:p-10 relative hover:shadow-[0_0_30px_rgba(23,168,145,0.2)] hover:border-brand-accent/50 transition-all duration-300 flex flex-col group overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/5 rounded-full blur-2xl -mr-10 -mt-10 group-hover:bg-brand-accent/20 transition-colors duration-500" />
-            <div className="bg-brand-accent/10 border border-brand-accent/20 w-12 h-12 rounded-2xl flex items-center justify-center mb-8 text-brand-accent group-hover:scale-110 transition-transform">
-              <Cpu size={24} />
-            </div>
-            <h4 className="text-xl md:text-2xl font-bold mb-4 relative z-10 tracking-tight text-white">{faqs[2].q}</h4>
-            <p className="text-sm md:text-base text-brand-beige opacity-80 leading-relaxed mb-auto relative z-10">
-              {faqs[2].a}
-            </p>
-          </motion.div>
-
-          {/* Standard FAQ Block */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
-            className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-[#111] border border-white/10 shadow-sm rounded-[2rem] p-8 md:p-10 flex flex-col justify-center hover:border-brand-accent/50 hover:shadow-[0_0_20px_rgba(23,168,145,0.1)] transition-all"
-          >
-            <h4 className="text-xl md:text-2xl font-bold mb-3 tracking-tight text-white">{faqs[0].q}</h4>
-            <p className="text-sm md:text-base text-brand-beige opacity-80 leading-relaxed">{faqs[0].a}</p>
-          </motion.div>
-
-          {/* Another Stat Box */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.25 }}
-            className="col-span-1 lg:col-span-1 row-span-1 bg-brand-accent rounded-[2rem] p-8 md:p-10 text-white flex flex-col justify-between overflow-hidden relative group shadow-lg"
-          >
-            <div className="absolute -bottom-8 -right-8 opacity-10 group-hover:rotate-12 transition-transform duration-700">
-              <Code size={120} />
-            </div>
-            <Code size={32} className="opacity-90 relative z-10" />
-            <div className="relative z-10">
-              <span className="block text-4xl md:text-5xl font-extrabold mb-1 tracking-tighter">Zero</span>
-              <span className="text-xs md:text-sm font-semibold opacity-90 uppercase tracking-wider">Latency Topologies</span>
-            </div>
-          </motion.div>
-
-          {/* Tech Stack Banner */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="col-span-1 md:col-span-3 lg:col-span-4 row-span-1 bg-[#0A0A0A] rounded-[2rem] p-8 md:p-12 flex items-center overflow-hidden relative group border border-white/10 shadow-2xl"
-          >
-            <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none" />
-            <div className="relative z-10 max-w-2xl">
-              <h4 className="text-white text-2xl md:text-3xl font-bold mb-3 tracking-tighter">Are your models scalable?</h4>
-              <p className="text-brand-beige/70 text-sm md:text-base leading-relaxed">Absolutely. Our Senior AI Engineers construct deep learning topologies specifically structured to handle massive petabytes without memory overflow. We engineer algorithms mathematically derived for speed.</p>
-            </div>
-            <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-brand-accent/20 to-transparent group-hover:opacity-100 opacity-50 transition-opacity duration-700" />
-            <div className="absolute -right-10 -bottom-10 opacity-10 group-hover:scale-110 transition-transform duration-700 pointer-events-none">
-              <CircuitBoard size={200} className="text-brand-accent" />
-            </div>
-          </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-[#111] border border-white/10 rounded-[2rem] p-8 flex items-center justify-center text-center flex-col group hover:bg-[#1a1a1a] hover:border-brand-accent/50 transition-colors h-full"
+            >
+              <Cpu size={40} className="text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
+              <h4 className="text-xl font-bold text-white mb-2">Hands-on Approach</h4>
+              <p className="text-xs text-brand-beige/70">
+                No corporate red tape. Just direct collaboration with passionate developers and engineers.
+              </p>
+            </motion.div>
+          </div>
 
         </div>
       </section>
