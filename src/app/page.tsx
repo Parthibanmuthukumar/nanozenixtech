@@ -3,7 +3,7 @@
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useState, useRef } from "react";
-import { Code, Cpu, CircuitBoard, Cpu as Chip, ChevronDown } from "lucide-react";
+import { Code, Cpu, CircuitBoard, Cpu as Chip, ChevronDown, Star, User } from "lucide-react";
 
 export default function Home() {
   const heroText = "BUILT YOUR PROJECT WITH US".split(" ");
@@ -55,6 +55,15 @@ export default function Home() {
     { q: "Do you build custom AI models for scaling businesses?", a: "Yes, our Senior AI Engineers have extensive experience building scalable, deep learning models tailored to specific business logic and workflows." },
     { q: "How does your VLSI Design process work?", a: "Our dedicated VLSI and Embeddded Systems engineers work strictly from architectural definition down to physical design and verification." },
     { q: "Does Nanozenix provide post-launch support?", a: "Absolutely. We pride ourselves on offering comprehensive maintenance, infrastructure scaling, and post-launch support packages." }
+  ];
+
+  const reviews = [
+    { name: "Karthik M", role: "Startup Founder", text: "Exceptional web development from Nanozenix! The services are top-notch and the scroll animation styles are incredibly smooth and stylish." },
+    { name: "Priya R", role: "Product Manager", text: "Their web development team is brilliant. They delivered an amazing backend, and the frontend hover animation styles are fluid and modern. Highly recommend their services." },
+    { name: "Vignesh S", role: "Tech Lead", text: "Nanozenix provides fantastic digital services. The parallax animation styles fit our brand perfectly, and their backend architecture is extremely robust." },
+    { name: "John T ", role: "Student", text: "Great web development experience! They combined an unshakeable backend with micro-animations that made our product feel premium. Their overall services are highly professional." },
+    { name: "Santhosh K", role: "E-commerce Director", text: "Impressed by the quality of their web development. The backend is fast, and the specific fade-in animation styles they used make navigating the site a joy." },
+    { name: "Aishwarya V", role: "Engineering Head", text: "A 5-star web development service! They nailed both complex backend logic and gorgeous UI. The 3D animation styles they implemented are exactly what we needed." },
   ];
 
   return (
@@ -289,6 +298,42 @@ export default function Home() {
             </motion.div>
           </div>
 
+        </div>
+      </section>
+
+      {/* 5. CLIENT REVIEWS SECTION */}
+      <section className="px-4 md:px-8 py-24 mb-10 max-w-7xl mx-auto relative border-t border-white/10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold tracking-tight mb-4 text-white">What Our Clients Say</h2>
+          <div className="w-24 h-1 bg-brand-accent mx-auto rounded-full shadow-[0_0_10px_rgba(23,168,145,0.5)]" />
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {reviews.map((review, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="bg-[#111] p-8 rounded-3xl border border-white/5 hover:border-brand-accent/30 shadow-lg relative group transition-colors"
+            >
+              <div className="flex text-brand-accent mb-4">
+                {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
+              </div>
+              <p className="text-brand-beige/80 text-sm mb-8 italic">"{review.text}"</p>
+              
+              <div className="flex items-center gap-4 mt-auto">
+                <div className="w-12 h-12 bg-[#222] rounded-full flex items-center justify-center text-white/50 border border-white/10 group-hover:border-brand-accent/50 transition-colors">
+                  <User size={20} />
+                </div>
+                <div>
+                  <h4 className="text-white font-bold text-sm">{review.name}</h4>
+                  <p className="text-xs text-brand-beige/60">{review.role}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
