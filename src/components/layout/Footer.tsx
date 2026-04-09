@@ -11,7 +11,7 @@ export default function Footer() {
             <Image 
               src={navbarIcon} 
               alt="Nanozenix" 
-              className="h-8 w-auto object-contain brightness-0 invert" 
+              className="h-12  w-20 object-contain brightness-0 invert" 
             />
           </div>
           <p className="text-sm text-brand-muted">
