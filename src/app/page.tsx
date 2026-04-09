@@ -59,10 +59,10 @@ export default function Home() {
 
   const reviews = [
     { name: "Karthik M", role: "Startup Founder", text: "Exceptional web development from Nanozenix! The services are top-notch and the scroll animation styles are incredibly smooth and stylish." },
-    { name: "Priya R", role: "Product Manager", text: "Their web development team is brilliant. They delivered an amazing backend, and the frontend hover animation styles are fluid and modern. Highly recommend their services." },
-    { name: "Vignesh S", role: "Tech Lead", text: "Nanozenix provides fantastic digital services. The parallax animation styles fit our brand perfectly, and their backend architecture is extremely robust." },
-    { name: "John T ", role: "Student", text: "Great web development experience! They combined an unshakeable backend with micro-animations that made our product feel premium. Their overall services are highly professional." },
-    { name: "Santhosh K", role: "E-commerce Director", text: "Impressed by the quality of their web development. The backend is fast, and the specific fade-in animation styles they used make navigating the site a joy." },
+    { name: "Priya R", role: "Product Manager", text: "Their AI engineering team is brilliant! They delivered custom deep learning models for our workflow that completely transformed our intelligent automation processes." },
+    { name: "Vignesh S", role: "Hardware Lead", text: "Nanozenix provides fantastic VLSI design services. Their team flawlessly handled our complex hardware requirements from RTL down to physical synthesis." },
+    { name: "John T ", role: "Director of IoT", text: "Great experience with their embedded systems team! They crafted robust firmware for our industrial IoT devices, ensuring mission-critical reliability." },
+    { name: "Santhosh K", role: "E-commerce Director", text: "Impressed by the quality of their comprehensive services. From robust backend architecture to flawless IoT integration, they delivered on every front." },
     { name: "Aishwarya V", role: "Engineering Head", text: "A 5-star web development service! They nailed both complex backend logic and gorgeous UI. The 3D animation styles they implemented are exactly what we needed." },
   ];
 
